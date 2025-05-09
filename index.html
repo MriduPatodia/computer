@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello ma'am 😁</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FFF8F0;
+            --sage: #A3B18A;
+            --forest: #3A5A40;
+            --coral: #FF8552;
+            --paper: #F5F0EB;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--cream);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.8;
+            background-image: radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--forest), #2d4739);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23FFF8F0" opacity=".25"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .content-area {
+            width: 100%;
+        }
+        
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .student-box {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .student-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sage), var(--coral));
+        }
+        
+        .student-box:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        }
+        
+        .student-box h3 {
+            margin: 0;
+            font-weight: 600;
+            color: var(--forest);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .note-container {
+            display: block; /* Changed from none to block */
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            border: 1px solid rgba(0,0,0,0.05);
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .note-header {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .note-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--forest);
+            margin: 0;
+        }
+        
+        .note-message {
+            white-space: pre-line;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            background-color: var(--paper);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--sage);
+        }
+        
+        .note-signature {
+            font-family: 'Playfair Display', serif;
+            text-align: right;
+            margin-top: 40px;
+            color: var(--forest);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--forest), var(--sage));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(58,90,64,0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(58,90,64,0.4);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--forest), #2d4739);
+            color: white;
+            margin-top: 80px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%233A5A40" opacity=".25"/></svg>');
+            background-size: cover;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: var(--forest);
+            text-align: center;
+            margin: 50px 0;
+            font-size: 1.4rem;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2em;
+            color: var(--coral);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: -15px;
+            left: 0;
+        }
+        
+        .quote::after {
+            bottom: -30px;
+            right: 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .student-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .note-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thank You Ma'am!</h1>
+        <p class="subtitle">A farewell tribute from your batch of 2026</p>
+    </header>
+    
+    <div class="container">
+        <div class="content-area">
+            <div class="quote">
+                "Debugging is like being a detective in a crime movie where you're also the murderer." 
+                <br>- Unknown
+            </div>
+            
+            <h2 style="text-align: center; color: var(--forest);">Click on a name to read their message:</h2>
+            
+            <div class="student-grid" id="studentGrid">
+                <!-- Student boxes will be added here by JavaScript -->
+            </div>
+            
+            <div id="notesContainer">
+                <!-- Individual notes will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p style="font-size: 1.4rem; margin-bottom: 15px;">We'll miss you! Wishing you all the best ❤️</p>
+    </footer>
+    
+    <script>
+        // Student data
+        const students = [
+            {
+                name: "Vania",
+                message: `Dear Ma'am,\n\nI want to say a heartfelt thank you for being such an inspiring part of my journey. Your classroom was a place where I always felt seen, heard and valued and it's extremely hard to say goodbye. You didn't just teach from the textbook- you taught us with kindness, understanding and heart. I'll never forget the lessons you have imparted and I'll always cherish the values you have instilled in me.\n\nYou will always have a special place in my heart.\n\nLots and lots of love,\nVania Jain`
+            },
+            {
+                name: "Sunakshi",
+                message:`Dear ma'am,\n\nI never have and never will form itna close bond with any other teacher in just one year time. You asked us once what our favourite place in school was. I didn't have an answer at that time, but now I do. The computer lab has become my home. I associate the peaceful vibe we often talked about with it now. This is all because of you and your presence every time we enter. I can't imagine it without you. All the wonderful conversations we had and the memories we shared will forever be cherished by all of us. The way you encourage all of us to do our best and constantly keep reminding me to study hard enough to get a gp is something I've never experienced before. It is a really heartwarming feeling and I will miss it with all my heart. The way I missed school the most on days I didn't have computer says it all😂. I would like to conclude by saying that I will always look forward to your heartfelt messages. \n\nLove Sunakshi💕`
+            },
+            {
+                name:"Mridu",
+                message: `I remember the first time you taught me, back in Class 6. I don't remember much from then, but I do remember studying for those 10-mark class tests we used to have during Mrs. Jalan's Hindi period right before yours—and I remember how much I liked having you as my teacher even then.\n\nSo when I found out you were going to teach us in Class 11, I felt this quiet kind of relief. Like okay—maybe things will be fine. I felt like I didn't have much to worry about (except catching up on the syllabus, obviously), but even that felt more manageable because it was you.\n\nAnd now, even though you've only taught us for a year, it feels like we've learned so much more than just the subject. Your classes became something I genuinely looked forward to. On the days when we were all fed up with chemistry, we'd check the timetable and go, "Abhi next E4 hai?" and then, "Thank god." Because, well—chemistry.\n\nHonestly, the computer lab started to feel like home. My friends keep telling me, "At this point tum lab mein ghar basa lo," and "I will come and physically drag you out of there." And I'd still choose to stay back every lunch break.\n\nI took up computer just for the subject, but with you, it wasn't just any elective. You made it feel like a safe little corner in the middle of all the chaos. You explained things in a way that made sense, but more than that, you got us. You looked out for us. And even when you didn't say much, you were still there in a way that really mattered.\n\nIt's hard to put into words how much it hurts that you're leaving because you made a difference—and that doesn't just go away.\n\nThank you. For the calm. For the care. For everything.\n\nI'll try my best to get that 100. Promise.\n\nI'm going to miss you so, so much. Everything from "kuch kha lo" to "jao, Mrs. Patra daategi."\n\nLove,\nMridu 💕 `
+            },
+            {
+                name: "Naishha",
+                message: `Dear ma'am,\n\nI consider myself privileged to have studied from you for more than 3 years in mhs. You're the best computer teacher mhs can ever have!\n\nWe are going to miss those little stories you share with us at the beginning of the class, those little laughs we have between the class, and those little chocolates that you give to celebrate the smallest of things.\n\nThankyou for making us believe in ourselves always, thankyou for always being so motivational and supportive. The computer lab is going to be really solitary without your presence :(. \n\nI'll miss you ma'am 🤍\n\n~Naishha`
+            },
+            {
+                name: "Navika",
+                message: `Dear Ma'am,\n\nIt feels strange to say goodbye after having you as a teacher for so many years. You've been a constant part of my journey, and your presence in the computer lab will truly be missed.\n\nThank you for your guidance, your patience, and for always being there through so many phases of school life.\n\nI'll miss you a lot ma'am.\n\nWith love, \n\nNavika 💗`
+            },
+            {
+                name: "Sampriti",
+                message: `Hello ma'am💕\n\nThank you so much for being there for us throughout and supporting us no matter what😊\n\nYou have made this subject very interesting for us and have taught us to love it in our own way🥰 Thank you, for not only teaching us computer, but also sharing lovely stories, giving innumerable life lessons, fun and care along the way\n\nWe love you and wish you all the best❤️`
+            },
+            {
+                name: "Rajanya",
+                message: `Thank you maam for not only helping me out with computer programs but also guiding me to become a better human being. Thank you for values that will help me far beyond the classroom too. 💗`
+            },
+            {
+                name: "Geet",
+                message: `Mrs. Gulati, thank you for being more than just our computer teacher—you were someone we could always count on. You didn't just teach us how to code, you taught us life lessons we'll carry forever. Your warmth, patience, and support meant the world to us. We're really going to miss you and your amazing energy. Wishing you all the happiness and success wherever you go—you truly made a difference in our lives!✨️`
+            },
+            {
+                name: "Priyanshi",
+                message: `Hi ma'am,\n\nI never thought there would ever be a day where we would have to say goodbye to you. However, thank you so much for always being a source of unwavering support. I am so grateful for the things you have taught me, both academically and morally. You never failed to be there for us whenever and however we needed you. You always encouraged and appreciated us just the way we were. Thank you so so much for always being so approachable and friendly. You will always remain one of the greatest teachers we have had and we will never forget you💗`
+            },
+            {
+                name: "Reetoja",
+                message: `Dear Ms. Gulati,\n\nFirst of all, thank you. Thank you for believing in all of us and motivating us to do better in our life. You not only taught us computer, but many more things, like how inanimate objects can feel what we project on them, how we should not worry about washing our hands after petting a cute dog, how health matters more than money and how to forgive people and move on with our life. Of course, these life lessons also came with question papers which have given me multiple existential crisis over the years. But it is also true that these question papers also made me more careful about my mistakes and thoughtful about my answers. As a student, I know I am quite ordinary and forgettable, as I dislike social interactions with most people- even then, I will express the sincerest thank you for being such an amazing teacher and for caring so much about us❤️❤️❤️ - Reetoja (Banerjee)`
+            },
+            {
+                name: "Diya",
+                message: `As we say goodbye, I just want to take a moment to thank you sincerely for everything you've done. Your passion for computer science, and your dedication have not only deepened my understanding of the subject but have also inspired me in countless ways.\n\nYou've been more than a teacher. Whether it was helping me through challenging concepts, encouraging me to push my limits, or simply being there with support and advice, you've made a lasting impact on my journey.\n\nThank you, Miss, for everything. Wishing you all the best in your next chapter—you will be greatly missed.`
+            },
+            {
+                name: "Aadyaa",
+                message: "Dear Ms. Gulati,\n\nI still remember walking into your class thinking computers were just boxes of blinking lights and confusing code—something I'd tolerate, not love. But somehow, through your magical ability to explain things that would normally make my brain melt, you turned that confusion into curiosity, and that curiosity into passion. Now I can confidently say: you've made me fall in love with computers. (Which, to be honest, is great... until I spend hours debugging a semicolon error and silently get irritated for being in this mess.)\n\nBut beyond the bits and bytes, you've taught me lessons that aren't found in any textbook. You taught me resilience—because every crash and every failed code attempt was a chance to try again. You taught me patience—especially when I watched you repeat the same explanation five times, still smiling, while we all stared at you like stunned goldfish. And most of all, you taught me to believe in myself, even when I didn't. That's the kind of teacher you are: the kind who doesn't just teach the subject but shapes the student.\n\nYou were never just a teacher. You were a mentor, a counselor, a debugger of both code and life problems. You supported me when I was stuck, encouraged me when I wanted to give up, and celebrated the small wins with a pride that felt like family. Honestly, if there were a patch update for 'Perfect Human,' I think you'd already be running the latest version.\n\nIt's hard to imagine the school without your presence—the sound of your laughter, and the warmth you brought into the lab. We'll miss your lessons, your wisdom.\n\nThank you for everything, truly. You've not only made an impact on my education but on who I'm becoming as a person. Wherever you're heading next, they're ridiculously lucky to have you.\n\nWishing you endless happiness and new adventures.\n\nWith love && immense gratitude\n\n-Aadyaa ❤️"
+            },
+            {
+                name: "Ritoja",
+                message: `hi ma'am! it has been a pleasure to learn computer in such a simple, fun yet informative way from YOU! Our run together has not been small. I want to say a massive Thank You for always being there and I will unapologetically spam you with kitten photos the next time we have a litter. Leaving you with happy faces and happy memories...❤️‍🩹`
+            },
+            {
+                name:"Muskaan",
+                message: `Dear Ma'am,\n\nIt's hard to say goodbye to such a fantastic computer teacher. You made every class engaging and helped us understand things in a way that was clear and fun. We've learned so much from you, not just about computers but also about patience and perseverance. \n\nWe'll really miss your positive energy, and we wish you all the best in your new journey—you truly deserve every bit of success and joy coming your way.\n\n-muskaan`
+            }, 
+            {
+                name: "Rajanyya",
+                message: `Hi maam, its sad to see you leaving and I'll miss you alot. I'll really miss the 'you' factor- the 'don't worry, tell me, I won't scold you', the 'jao jao physics teacher daategi', or the random hellos in the corridor. I'll try my best to get a 100 in ISC. Take care and dont forget us! Whichever school you're going to is lucky to have you.`
+            },
+            {
+                name: "Ishanvi",
+                message: `Ma'am,\n\nThere is so much to say but most of all I want to say thank you. Thank you for being there in so many different ways, being a source of constant support and encouragement. I have and will always look up to you. I know that you aren't leaving 'us' but it's still a bittersweet moment as computer classes won't feel the same. Will try my best to get that 100 in isc. Thank you so so much ma'am and will miss you a lot.\n\n-Ishanvi`
+            },
+            {
+                name: "Rainaa",
+                message: `thankyou for teaching me the ways of coding and computer science maam, and thankyou for the constant support,patience and guidance that you have provided us with. I am extremely grateful that I got to be your student and I definitely did get inspired by you and your passion for computers! I wish you all the best for the future ma’am 💗\n\n-rainaa`
+            }
+
+        ];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            const studentGrid = document.getElementById('studentGrid');
+            const notesContainer = document.getElementById('notesContainer');
+            
+            // Create student boxes
+            students.forEach((student, index) => {
+                const box = document.createElement('div');
+                box.className = 'student-box';
+                box.innerHTML = `<h3>${student.name}</h3>`;
+                box.onclick = () => showNote(index);
+                studentGrid.appendChild(box);
+            });
+        });
+
+        function showNote(index) {
+            const studentGrid = document.getElementById('studentGrid');
+            const notesContainer = document.getElementById('notesContainer');
+            
+            studentGrid.style.display = 'none';
+            notesContainer.innerHTML = '';
+            
+            const note = document.createElement('div');
+            note.className = 'note-container';
+            const student = students[index];
+            
+            note.innerHTML = `
+                <div class="note-header">
+                    <h2>${student.name}</h2>
+                </div>
+                <div class="note-message">${student.message.replace(/\n/g, '<br>')}</div>
+                <button class="back-button" onclick="showStudentGrid()">
+                    ← Back to All Students
+                </button>
+            `;
+            
+            notesContainer.appendChild(note);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showStudentGrid() {
+            document.getElementById('studentGrid').style.display = 'grid';
+            document.getElementById('notesContainer').innerHTML = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
